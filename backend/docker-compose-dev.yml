@@ -1,0 +1,16 @@
+version: "2.29.7" # Specify Docker Compose version
+
+# NOTE for PRODUCTION:
+# Better username and password
+# TODO: Use a .env file to store the username and password
+services:
+  artisian_db:
+    image: postgres:13
+    env_file:
+      - .env.db.dev # Load environment variables from a file
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+volumes:
+  postgres_data:
