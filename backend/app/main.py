@@ -29,6 +29,7 @@ app.add_middleware(
 )
 
 # Our router routes will be added here
+# NOTE -> normally there would be some form of auth in the middleware to processes protected routes
 from .routes import chat
 app.include_router(chat.router)
 

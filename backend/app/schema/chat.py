@@ -8,7 +8,6 @@ class Userbase(BaseModel):
 class MessageBase(BaseModel):
     content: str
     is_bot: bool = False
-    user_id: int
     
 class Message(MessageBase):
     id: int
@@ -33,3 +32,8 @@ class MessageCreate(MessageBase):
     user_id: int
     content: str
     is_bot: bool = False
+
+class MessageUpdate(MessageBase):
+    content: str
+    id: int
+    user_id: int
