@@ -1,7 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 interface Message {
-	text: string;
+	content: string;
+	user_id: string;
+	timestamp?: number;
+	id?: number;
+	isBot: boolean;
 }
 
 interface InitialStateType {
