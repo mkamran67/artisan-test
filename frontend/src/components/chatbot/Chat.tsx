@@ -34,7 +34,6 @@ export default function Chat({}: Props) {
 			dispatch(sendMessage(message));
 			setMessage("");
 		} catch (err) {
-			console.error(err);
 			dispatch(
 				addError(`Failed to send message ${process.env.NODE_ENV === "development" ? err : ""}`)
 			);
@@ -73,7 +72,9 @@ export default function Chat({}: Props) {
 				<div
 					className={`fixed z-50 shadow-md flex flex-col bg-white rounded-2xl ${
 						supersized
-							? "bottom-5 right-5 md:w-3/4 2xl:w-2/5 md:h-3/4"
+							? `bottom-5 right-5 md:w-3/4 2xl:w-2/5 md:h-3/4 ${
+									windowSize.height < 1024 && "md:h-[95%]"
+							  }`
 							: windowSize.width > 768
 							? "bottom-5 right-5 w-[420px] h-[860px]"
 							: "w-[95%] h-[95%] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"

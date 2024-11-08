@@ -18,7 +18,7 @@ export default function MessageBox({ messages }: Props) {
 	}, [messages]);
 
 	return (
-		<div className="flex flex-col flex-grow w-full gap-6">
+		<div className="flex flex-col w-full gap-6">
 			{messages.length > 0 ? (
 				<>
 					{messages.map((message, index) => (
