@@ -2,6 +2,7 @@ from typing import Union
 from dotenv import load_dotenv
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+# from starlette.middleware.cors import CORSMiddleware
 
 from app.utils.env_setup import check_for_env_vars
 
@@ -16,14 +17,15 @@ app = FastAPI()
 
 # Assuming it's a public api
 origins = [
+  "https://localhost:3000",
   "*",
 ]
 
 # Adds headers to the browser to allow CORS + specific origin
 app.add_middleware(
   CORSMiddleware,
-  allow_origins=origins,
   allow_credentials=True,
+  allow_origins=["*"],
   allow_methods=["*"],
   allow_headers=["*"],
 )

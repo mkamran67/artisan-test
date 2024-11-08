@@ -1,16 +1,20 @@
 import React from "react";
 
 type Props = {
-	closeHandler: () => void;
+	actionHandler: () => void;
 	BtnIcon: React.ReactNode;
 	extraClasses?: string;
+	loading?: boolean;
 };
 
-export default function ChatNavBtn({ closeHandler, BtnIcon, extraClasses }: Props) {
+export default function ChatNavBtn({ actionHandler, loading, BtnIcon, extraClasses }: Props) {
 	return (
 		<button
-			onClick={closeHandler}
-			className={`w-6 h-6 hover:scale-110 transition-transform duration-200 ${extraClasses}`}
+			disabled={loading}
+			onClick={actionHandler}
+			className={`w-6 h-6 hover:scale-110 transition-transform duration-200 ${extraClasses} ${
+				loading ? "animate-spin" : ""
+			}`}
 		>
 			{BtnIcon}
 		</button>

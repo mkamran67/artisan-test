@@ -1,42 +1,41 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import PageContainer from "./components/containers/PageContainer";
 import CardContainer from "./components/containers/CardContainer";
 import DottedLoader from "./components/loader/DottedLoader";
 import { useDispatch, useSelector } from "react-redux";
-import { updateUserName } from "./redux/userReducer";
+import { createUser, updateUserName } from "./redux/userReducer";
 import { useNavigate } from "react-router-dom";
 import { addError, clearError } from "./redux/errorsReducer";
 import { AppDispatch, RootState } from "./redux/store";
+import axios from "axios";
 
 function App() {
-	const [loading, setLoading] = useState(false);
 	const [name, setName] = useState("");
 	const dispatch = useDispatch<AppDispatch>();
 	const navigate = useNavigate();
 
 	// Generally speaking this would be top level to show on page, or specific component UI error elements.
 	const { message, level } = useSelector((state: RootState) => state.errors);
+	const { id, loading } = useSelector((state: RootState) => state.user);
 
 	const startTalking = async () => {
 		try {
-			setLoading(true);
-
 			if (name.length <= 2) {
 				dispatch(addError({ message: "Name should be more than 2 characters", level: "error" }));
 				dispatch(clearError());
 			} else {
-				dispatch(updateUserName(name));
-				// Ping backend to simulate bot availability
-				// const
-				// const data = await response.json();
-				navigate("/chatpage");
+				dispatch(createUser({ name }));
 			}
 		} catch (error) {
 			console.error(error);
-		} finally {
-			setLoading(false);
 		}
 	};
+
+	useEffect(() => {
+		if (id && loading === false) {
+			navigate("/chatpage");
+		}
+	}, [loading]);
 
 	return (
 		<PageContainer>

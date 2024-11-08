@@ -6,7 +6,6 @@ interface InitialStateType {
 	level: "error" | "warning" | "info";
 }
 
-// First, define an async thunk
 export const clearError = createAsyncThunk(
 	"error/clean", // A unique action type
 	async () => {
@@ -30,10 +29,6 @@ const chatSlice = createSlice({
 			state.message = payload.message;
 			state.level = payload.level;
 		},
-		// A bit of async thunk above example with setTimeout
-		// clearError: (state, { payload }) => {
-		// 	state.message = "";
-		// },
 	},
 	extraReducers: (builder) => {
 		builder.addCase(clearError.fulfilled, (state, { payload }) => {

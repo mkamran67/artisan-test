@@ -16,6 +16,6 @@ class Message(Base):
 
     id = Column(Integer, primary_key=True, index=True)
     user_id = Column(Integer, ForeignKey("users.id"))
-    content = Column(String(500))
+    content = Column(String(5000))
     is_bot = Column(Boolean, default=False)
     created_at = Column(DateTime(timezone=False), server_default=func.now()) 

@@ -40,7 +40,7 @@ async def get_user_messages(user_id: int, db: Session = Depends(get_db)):
   except Exception as e:
     raise HTTPException(status_code=500, detail=str(e))
   
-@router.post("/message/", response_model=MessageResponse)
+@router.post("/message/new", response_model=MessageResponse)
 async def create_message(message: MessageCreate, db: Session = Depends(get_db)):
   try:
     message = Message(**message.model_dump())
