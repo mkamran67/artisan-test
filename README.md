@@ -33,6 +33,10 @@ pip install -r requirements.txt
 # 4. Sync Schema/mgrations with Database ONLY on a NEW machine or DB/Schema changes
 alembic upgrade head
 
+# 5. Please update the OpenAI API key. The below key is not valid, you can test it on Heroku.
+# .env
+# OPENAI_API_KEY=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
+
 # Finally. Run fastapi or uvicorn
 fastapi dev app/main.py
 
