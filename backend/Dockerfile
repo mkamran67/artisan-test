@@ -1,12 +1,13 @@
 # Steps for creating the custom image
 
 # Base Image
-FROM python:3.12.3-slim
+FROM python:3.12.3
 
 # Working Directory
-WORKDIR /app
+WORKDIR /usr/src/app
 
-COPY requirements.txt .
+# Copies from WORKDIR ^^
+COPY requirements.txt ./
 
 # Command to run
 RUN pip install --no-cache-dir -r requirements.txt

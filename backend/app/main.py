@@ -16,8 +16,8 @@ check_for_env_vars();
 app = FastAPI()
 
 # Assuming it's a public api
-  # "https://localhost:3000",
 origins = [
+  "https://localhost:3000",
   "*",
 ]
 
