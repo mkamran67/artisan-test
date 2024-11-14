@@ -1,15 +1,12 @@
-# NOTE for PRODUCTION:
-# Better username and password
-# TODO: Use a .env file to store the username and password
 services:
   artisian_db:
-    image: postgres:13 # Use the official PostgreSQL image
+    image: postgres:13
     env_file:
       - .env.db.dev
     volumes:
-      - postgres_data:/var/lib/postgresql/data # Use a volume for data persistence
+      - postgres_data:/var/lib/postgresql/data
     ports:
-      - "5432:5432" # Map port 5432 on the host to the container
+      - "5432:5432"
 
 volumes:
-  postgres_data: # Define the named volume
+  postgres_data:

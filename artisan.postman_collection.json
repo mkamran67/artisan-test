@@ -1,0 +1,157 @@
+{
+	"info": {
+		"_postman_id": "2396ce43-30d2-4558-8033-d4adf595877c",
+		"name": "artisan",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "11173367"
+	},
+	"item": [
+		{
+			"name": "send ping",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000",
+					"host": [
+						"localhost"
+					],
+					"port": "8000"
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Register user name",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\" : \"poatato\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://artisan-backend-419b072e4d18.herokuapp.com/chat/user",
+					"protocol": "https",
+					"host": [
+						"artisan-backend-419b072e4d18",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"chat",
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post a message or question",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"user_id\": 1,\n  \"content\": \" Can you tell me anything about artisan ai?\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "0.0.0.0:8000/chat/message/new",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "8000",
+					"path": [
+						"chat",
+						"message",
+						"new"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete message of user",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8000/chat/messages/1/23",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"chat",
+						"messages",
+						"1",
+						"23"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get messages of a user",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/chat/messages/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"chat",
+						"messages",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update a message",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8000/chat/messages/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"chat",
+						"messages",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
